@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - AQUARIX</title>
+    <link rel="stylesheet" href="css/contacto.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='dropGrad' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2357C5D0;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%233A9FB0;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M100 30 Q70 60 70 90 Q70 130 100 160 Q130 130 130 90 Q130 60 100 30 Z' fill='url(%23dropGrad)' stroke='%2357C5D0' stroke-width='4'/%3E%3Cpath d='M100 85 Q95 85 95 90 L95 100 Q95 105 100 108 L100 125' stroke='%2386D293' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cellipse cx='85' cy='95' rx='8' ry='12' fill='%2386D293'/%3E%3Cellipse cx='105' cy='100' rx='9' ry='13' fill='%2386D293'/%3E%3Cellipse cx='95' cy='108' rx='7' ry='10' fill='%2386D293'/%3E%3C/svg%3E" alt="Logo" class="logo">
+                <span class="brand">AQUARIX</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html" class="active">Contacto</a></li>
+            </ul>
+            <div class="cart-icon" id="cartIcon">
+                🛒 <span class="cart-count">0</span>
+            </div>
+            <button class="menu-btn" id="menuBtn">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-contact">
+        <h1>Contáctanos 📱</h1>
+        <p>Estamos aquí para ayudarte</p>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Info de Contacto -->
+                <div class="contact-info">
+                    <h2>Información de Contacto</h2>
+                    <p class="info-desc">¿Tienes dudas? Escríbenos y te responderemos lo más pronto posible</p>
+                    
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="info-icon">📞</div>
+                            <div>
+                                <h3>WhatsApp</h3>
+                                <p>+591 73211815</p>
+                                <a href="https://wa.me/59173211815" target="_blank" class="btn-whatsapp">
+                                    Escribir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">📍</div>
+                            <div>
+                                <h3>Ubicación</h3>
+                                <p>La Paz, Bolivia</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">⏰</div>
+                            <div>
+                                <h3>Horario</h3>
+                                <p>Lunes - Sábado</p>
+                                <p>9:00 AM - 7:00 PM</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">📧</div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>info@aquarix.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario -->
+                <div class="contact-form-container">
+                    <h2>Envíanos un Mensaje</h2>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nombre Completo *</label>
+                            <input type="text" id="name" required placeholder="Tu nombre">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Teléfono/WhatsApp *</label>
+                            <input type="tel" id="phone" required placeholder="Ej: 73211815">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="tu@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Asunto *</label>
+                            <select id="subject" required>
+                                <option value="">Selecciona un asunto</option>
+                                <option value="consulta">Consulta de Producto</option>
+                                <option value="pedido">Hacer un Pedido</option>
+                                <option value="asesoría">Asesoría Técnica</option>
+                                <option value="reclamo">Reclamo</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Mensaje *</label>
+                            <textarea id="message" rows="5" required placeholder="Cuéntanos en qué podemos ayudarte..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='dropGrad' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2357C5D0;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%233A9FB0;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M100 30 Q70 60 70 90 Q70 130 100 160 Q130 130 130 90 Q130 60 100 30 Z' fill='url(%23dropGrad)' stroke='%2357C5D0' stroke-width='4'/%3E%3Cpath d='M100 85 Q95 85 95 90 L95 100 Q95 105 100 108 L100 125' stroke='%2386D293' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cellipse cx='85' cy='95' rx='8' ry='12' fill='%2386D293'/%3E%3Cellipse cx='105' cy='100' rx='9' ry='13' fill='%2386D293'/%3E%3Cellipse cx='95' cy='108' rx='7' ry='10' fill='%2386D293'/%3E%3C/svg%3E" alt="Logo">
+                    <h3>AQUARIX</h3>
+                </div>
+                <p>Tu tienda especializada en acuarios</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces</h4>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="ofertas.html">Ofertas</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>📞 +591 73211815</p>
+                <p>📍 La Paz, Bolivia</p>
+                <p>⏰ Lun - Sáb: 9:00 - 19:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AQUARIX. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/contacto.js"></script>
+</body>
+</html>

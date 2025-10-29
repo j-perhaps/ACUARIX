@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Carrito de compras - AQUARIX">
+    <title>AQUARIX | Carrito de Compras</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/carrito.css">
+</head>
+<body>
+    <!-- HEADER SIMPLIFICADO -->
+    <header class="site-header">
+        <div class="main-header">
+            <div class="container">
+                <a href="index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                
+                <h1 class="page-title">Mi Carrito</h1>
+                
+                <button class="trash-btn" id="clear-cart-btn" title="Vaciar carrito">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="cart-main">
+        <div class="container">
+            
+            <!-- ITEMS DEL CARRITO -->
+            <div class="cart-items" id="cart-items">
+                <!-- Los items se cargarán dinámicamente aquí -->
+            </div>
+            
+            <!-- ESTADO VACÍO -->
+            <div class="empty-cart" id="empty-cart" style="display: none;">
+                <div class="empty-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h2>Tu carrito está vacío</h2>
+                <p>Agrega productos para empezar tu compra</p>
+                <a href="catalogo.html" class="btn-shop">
+                    <i class="fas fa-fish"></i>
+                    <span>Ver productos</span>
+                </a>
+            </div>
+            
+            <!-- CUPÓN DE DESCUENTO -->
+            <div class="coupon-section" id="coupon-section" style="display: none;">
+                <h3>¿Tienes un cupón?</h3>
+                <form class="coupon-form" id="coupon-form">
+                    <input 
+                        type="text" 
+                        id="coupon-input" 
+                        placeholder="Ingresa tu código" 
+                        class="coupon-input"
+                    >
+                    <button type="submit" class="coupon-btn">
+                        Aplicar
+                    </button>
+                </form>
+                <div class="coupon-message" id="coupon-message"></div>
+            </div>
+            
+            <!-- RESUMEN DEL PEDIDO -->
+            <div class="order-summary" id="order-summary" style="display: none;">
+                <h3>Resumen del pedido</h3>
+                
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">Bs. 0</span>
+                </div>
+                
+                <div class="summary-row" id="discount-row" style="display: none;">
+                    <span>
+                        Descuento
+                        <button class="remove-coupon-btn" id="remove-coupon" title="Quitar cupón">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </span>
+                    <span class="discount-amount" id="discount-amount">-Bs. 0</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Envío</span>
+                    <span id="shipping-cost">Bs. 0</span>
+                </div>
+                
+              
+                
+                <div class="summary-row total-row">
+                    <span>Total</span>
+                    <span id="total">Bs. 0</span>
+                </div>
+                
+                <button class="checkout-btn" id="checkout-btn">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Finalizar compra</span>
+                </button>
+                
+                <a href="catalogo.html" class="continue-shopping">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Seguir comprando</span>
+                </a>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- TEMPLATE ITEM DEL CARRITO -->
+    <template id="cart-item-template">
+        <div class="cart-item">
+            <div class="item-image">
+                <img src="" alt="" class="product-image">
+            </div>
+            
+            <div class="item-info">
+                <h4 class="item-name"></h4>
+                <p class="item-variant"></p>
+                <p class="item-price"></p>
+                
+                <div class="item-actions">
+                    <div class="quantity-control">
+                        <button class="qty-btn minus-btn">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                        <button class="qty-btn plus-btn">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    
+                    <button class="remove-btn" title="Eliminar">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="item-total">
+                <span class="total-price"></span>
+            </div>
+        </div>
+    </template>
+
+    <!-- MODAL CONFIRMACIÓN VACIAR CARRITO -->
+    <div class="modal" id="confirm-clear-modal">
+        <div class="modal-content">
+            <div class="modal-icon warning">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h3>¿Vaciar carrito?</h3>
+            <p>Se eliminarán todos los productos de tu carrito</p>
+            <div class="modal-actions">
+                <button class="btn-cancel" id="cancel-clear">Cancelar</button>
+                <button class="btn-confirm" id="confirm-clear">Vaciar</button>
+            </div>
+        </div>
+        <div class="modal-overlay" id="clear-overlay"></div>
+    </div>
+
+    <!-- MODAL CHECKOUT -->
+    <div class="modal" id="checkout-modal">
+        <div class="modal-content checkout-modal-content">
+            <button class="close-modal-btn" id="close-checkout">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <i class="fas fa-clipboard-list"></i>
+                <h3>Finalizar compra</h3>
+            </div>
+            
+            <form class="checkout-form" id="checkout-form">
+                <div class="form-section">
+                    <h4>Datos de contacto</h4>
+                    
+                    <div class="form-group">
+                        <label for="customer-name">Nombre completo *</label>
+                        <input 
+                            type="text" 
+                            id="customer-name" 
+                            required
+                            placeholder="Ej: Juan Pérez"
+                        >
+                    </div>
+                    
+                    
+                    
+                   
+                </div>
+                
+                <div class="form-section">
+                    <h4>Dirección de entrega</h4>
+                    
+                    <div class="form-group">
+    <label for="city">Ciudad *</label>
+    <select id="city" required>
+        <option value="">Selecciona tu ciudad</option>
+        <option value="la-paz">La Paz</option>
+        <option value="el-alto">El Alto</option>
+        <option value="cochabamba">Cochabamba</option>
+        <option value="santa-cruz">Santa Cruz</option>
+        <option value="oruro">Oruro</option>
+        <option value="potosi">Potosí</option>
+        <option value="sucre">Sucre</option>
+        <option value="tarija">Tarija</option>
+        <option value="beni">Beni</option>
+        <option value="pando">Pando</option>
+    </select>
+</div>
+
+<!-- Opciones para La Paz -->
+<div id="la-paz-options" style="display: none;">
+    <div class="form-group">
+        <label for="pickup-location">Punto de recojo *</label>
+        <select id="pickup-location">
+            <option value="">Selecciona dónde recoger</option>
+            <option value="correos">Correos</option>
+            <option value="san-francisco">San Francisco</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>
+            <input type="checkbox" id="delivery-el-alto" value="el-alto">
+            Delivery a El Alto (+6 Bs) - Entrega en parada del teleférico 🚡
+        </label>
+    </div>
+
+    <div class="form-group delivery-detail" id="teleferico-options" style="display: none;">
+        <label for="teleferico-line">Línea del teleférico *</label>
+        <select id="teleferico-line">
+            <option value="">Selecciona la línea</option>
+            <option value="roja">Línea Roja</option>
+            <option value="amarilla">Línea Amarilla</option>
+            <option value="verde">Línea Verde</option>
+            <option value="azul">Línea Azul</option>
+            <option value="naranja">Línea Naranja</option>
+            <option value="blanca">Línea Blanca</option>
+            <option value="celeste">Línea Celeste</option>
+            <option value="morada">Línea Morada</option>
+            <option value="plateada">Línea Plateada</option>
+            <option value="cafe">Línea Café</option>
+        </select>
+        
+        <label for="teleferico-station">Estación *</label>
+        <input 
+            type="text" 
+            id="teleferico-station" 
+            placeholder="Ej: 16 de Julio, Buenos Aires, etc."
+        >
+    </div>
+</div>
+
+<!-- Opciones para otras ciudades (envío) -->
+<div id="shipping-options" style="display: none;">
+    <div class="alert-info">
+        📦 Envío por agencia de encomiendas
+    </div>
+    
+    <div class="form-group">
+        <label for="shipping-phone">Número de celular *</label>
+        <input 
+            type="tel" 
+            id="shipping-phone" 
+            placeholder="Ej: 70123456"
+            pattern="[0-9]{8}"
+        >
+    </div>
+    
+    <div class="form-group">
+        <label for="shipping-ci">Número de Carnet (CI) *</label>
+        <input 
+            type="text" 
+            id="shipping-ci" 
+            placeholder="Ej: 1234567 LP"
+        >
+        <small>Necesario para retirar en la agencia</small>
+    </div>
+</div>
+
+<script>
+// Manejar cambio de ciudad
+document.getElementById('city').addEventListener('change', function() {
+    const laPazOptions = document.getElementById('la-paz-options');
+    const shippingOptions = document.getElementById('shipping-options');
+    const pickupSelect = document.getElementById('pickup-location');
+    const shippingPhone = document.getElementById('shipping-phone');
+    const shippingCI = document.getElementById('shipping-ci');
+    
+    if (this.value === 'la-paz') {
+        // Mostrar opciones de La Paz
+        laPazOptions.style.display = 'block';
+        shippingOptions.style.display = 'none';
+        pickupSelect.required = true;
+        shippingPhone.required = false;
+        shippingCI.required = false;
+    } else if (this.value === '') {
+        // No hay ciudad seleccionada
+        laPazOptions.style.display = 'none';
+        shippingOptions.style.display = 'none';
+    } else {
+        // Mostrar opciones de envío (solo celular y CI)
+        laPazOptions.style.display = 'none';
+        shippingOptions.style.display = 'block';
+        pickupSelect.required = false;
+        shippingPhone.required = true;
+        shippingCI.required = true;
+    }
+});
+
+// Manejar checkbox de delivery El Alto
+document.getElementById('delivery-el-alto').addEventListener('change', function() {
+    const teleOptions = document.getElementById('teleferico-options');
+    const teleSelect = document.getElementById('teleferico-line');
+    const teleStation = document.getElementById('teleferico-station');
+    
+    if (this.checked) {
+        teleOptions.style.display = 'block';
+        teleSelect.required = true;
+        teleStation.required = true;
+    } else {
+        teleOptions.style.display = 'none';
+        teleSelect.required = false;
+        teleStation.required = false;
+        teleSelect.value = '';
+        teleStation.value = '';
+    }
+});
+</script>
+
+<style>
+.alert-info {
+    background: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.form-group small {
+    display: block;
+    color: #666;
+    font-size: 0.85em;
+    margin-top: 5px;
+}
+</style>
+                    
+             
+                </div>
+                
+                <div class="form-section">
+                    <h4>Método de pago</h4>
+                    
+                    <div class="payment-methods">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="transferencia" checked>
+                            <div class="payment-card">
+                                <i class="fas fa-university"></i>
+                                <span>Transferencia bancaria</span>
+                            </div>
+                        </label>
+                        
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="efectivo">
+                            <div class="payment-card">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Efectivo contra entrega</span>
+                            </div>
+                        </label>
+                        
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="qr">
+                            <div class="payment-card">
+                                <i class="fas fa-qrcode"></i>
+                                <span>QR Simple/Tigo Money</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h4>Comentarios adicionales</h4>
+                    
+                    <div class="form-group">
+                        <textarea 
+                            id="order-notes" 
+                            rows="3"
+                            placeholder="Notas especiales sobre tu pedido (opcional)"
+                        ></textarea>
+                    </div>
+                </div>
+                
+                <div class="checkout-summary">
+                    <div class="summary-line">
+                        <span>Total a pagar:</span>
+                        <strong id="checkout-total">Bs. 0</strong>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-order-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Enviar pedido por WhatsApp</span>
+                </button>
+            </form>
+        </div>
+        <div class="modal-overlay" id="checkout-overlay"></div>
+    </div>
+
+    <!-- NAVEGACIÓN INFERIOR -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Inicio</span>
+        </a>
+        <a href="catalogo.html" class="nav-item">
+            <i class="fas fa-th-large"></i>
+            <span>Catálogo</span>
+        </a>
+        <a href="ofertas.html" class="nav-item">
+            <i class="fas fa-tag"></i>
+            <span>Ofertas</span>
+        </a>
+        <a href="carrito.html" class="nav-item active">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Carrito</span>
+            <span class="bottom-cart-count">0</span>
+        </a>
+    </nav>
+
+    <!-- NOTIFICACIÓN -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message"></span>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/productos.js"></script>
+    <script src="js/carrito.js"></script>
+</body>
+</html>

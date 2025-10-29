@@ -1,0 +1,316 @@
+{
+  "productos": [
+    {
+      "id": 3,
+      "nombre": "Canutillos Cerámicos Ultra Porosos",
+      "categoria": "filtros",
+      "descripcion": "Canutillos cerámicos de alta porosidad para colonización bacteriana y filtración biológica eficiente. Mejora la calidad del agua y mantiene tu acuario cristalino por más tiempo.",
+      "stock": 100,
+      "nuevo": true,
+      "oferta": true,
+      "rating": 4.9,
+      "reviews": 65,
+      "sku": "FIL-001",
+      "imagenes": [
+        "imagen/canutillos1.jpg",
+        "imagen/canutillos2.jpg",
+        "imagen/canutillos3.jpg"
+      ],
+      "variantes": [
+        {
+          "id": "fil-001-100g",
+          "tamaño": "100g",
+          "descripcion": "Perfecto para acuarios pequeños 🐠",
+          "precio": 10,
+          "precioOriginal": null,
+          "stock": 40
+        },
+        {
+          "id": "fil-001-250g",
+          "tamaño": "250g",
+          "descripcion": "Ideal para acuarios medianos 🐟",
+          "precio": 20,
+          "precioOriginal": null,
+          "stock": 30
+        },
+        {
+          "id": "fil-001-500g",
+          "tamaño": "1/2 kg",
+          "descripcion": "Excelente rendimiento 💪",
+          "precio": 28,
+          "precioOriginal": 35,
+          "stock": 20
+        },
+        {
+          "id": "fil-001-1kg",
+          "tamaño": "1 kg",
+          "descripcion": "Presentación económica 🔥💯",
+          "precio": 50,
+          "precioOriginal": 60,
+          "stock": 10
+        }
+      ],
+      "caracteristicas": [
+        "Alta porosidad para máxima colonia bacteriana",
+        "Mejora la filtración biológica",
+        "Compatible con filtros internos y externos",
+        "Mantiene el agua cristalina",
+        "Ideal para acuarios dulceacuícolas"
+      ]
+    },
+    {
+      "id": 4,
+      "nombre": "Tropical Fish Supervit",
+      "categoria": "alimento",
+      "descripcion": "Alimento premium para peces tropicales con fórmula balanceada, rica en nutrientes esenciales para mejorar color, vitalidad y salud general.",
+      "stock": 80,
+      "nuevo": true,
+      "oferta": false,
+      "rating": 4.7,
+      "reviews": 112,
+      "sku": "ALI-002",
+      "imagenes": [
+        "imagen/tropical2.jpg"
+      ],
+      "variantes": [
+        {
+          "id": "ali-002-chico",
+          "tamaño": "Vaso chico (250ml)",
+          "descripcion": "Ideal para acuarios pequeños",
+          "precio": 25,
+          "precioOriginal": null,
+          "stock": 40
+        },
+        {
+          "id": "ali-002-grande",
+          "tamaño": "Vaso grande (500ml)",
+          "descripcion": "Rinde más, excelente relación precio/calidad",
+          "precio": 50,
+          "precioOriginal": 60,
+          "stock": 30,
+          "ahorro": "Bs. 10 OFF"
+        },
+        {
+          "id": "ali-002-premium",
+          "tamaño": "Premium (250g)",
+          "descripcion": "Versión profesional para criadores exigentes",
+          "precio": 200,
+          "precioOriginal": 230,
+          "stock": 10,
+          "ahorro": "¡Ahorra Bs. 30!"
+        }
+      ],
+      "caracteristicas": [
+        "Nutrición completa y balanceada",
+        "Intensifica los colores naturales",
+        "Favorece la vitalidad y el crecimiento",
+        "No enturbia el agua",
+        "Marca reconocida internacionalmente"
+      ]
+    },
+    {
+      "id": 6,
+      "nombre": "Plantas Flotantes Limnobium Laevigatum",
+      "categoria": "plantas",
+      "descripcion": "Planta flotante decorativa que ayuda a reducir nitratos y proporciona refugio a alevines.",
+      "precio": 10,
+      "stock": 25,
+      "nuevo": true,
+      "oferta": false,
+      "rating": 4.8,
+      "reviews": 20,
+      "sku": "PLA-002",
+      "imagenes": [
+        "imagen/limnobium.jpg"
+      ],
+      "caracteristicas": [
+        "Flotante de crecimiento rápido",
+        "Controla la luz y las algas",
+        "Ideal para gambarios y acuarios tropicales",
+        "Fácil de mantener"
+      ]
+    },
+    {
+      "id": 7,
+      "nombre": "Cultivo Grindall",
+      "categoria": "alimento",
+      "descripcion": "Alimento vivo altamente nutritivo para peces, ideal para fomentar la reproducción y crecimiento saludable.",
+      "precio": 25,
+      "stock": 30,
+      "nuevo": false,
+      "oferta": false,
+      "rating": 4.6,
+      "reviews": 33,
+      "sku": "ALI-003",
+      "imagenes": [
+        "imagen/grindall.jpg"
+      ],
+      "caracteristicas": [
+        "Fuente rica en proteínas naturales",
+        "Fácil mantenimiento en tapper",
+        "Estimula el apetito de peces pequeños",
+        "Ideal para peces de cría"
+      ]
+    },
+    {
+      "id": 8,
+      "nombre": "Artemia Descapsulada",
+      "categoria": "alimento",
+      "descripcion": "Huevos de artemia descapsulada lista para alimentar directamente o eclosionar, excelente para alevines.",
+      "stock": 40,
+      "nuevo": true,
+      "oferta": true,
+      "rating": 4.9,
+      "reviews": 44,
+      "sku": "ALI-004",
+      "imagenes": [
+        "imagen/artemia.jpg"
+      ],
+      "variantes": [
+        {
+          "id": "ali-004-10g",
+          "tamaño": "10g",
+          "descripcion": "Porción pequeña para iniciarse",
+          "precio": 30,
+          "precioOriginal": null,
+          "stock": 20
+        },
+        {
+          "id": "ali-004-20g",
+          "tamaño": "20g",
+          "descripcion": "Ideal para criadores medianos",
+          "precio": 50,
+          "precioOriginal": null,
+          "stock": 15
+        },
+        {
+          "id": "ali-004-50g",
+          "tamaño": "50g",
+          "descripcion": "Presentación económica para uso frecuente",
+          "precio": 130,
+          "precioOriginal": 150,
+          "stock": 10,
+          "ahorro": "¡Ahorra Bs. 20!"
+        }
+      ],
+      "caracteristicas": [
+        "Huevos descapsulados listos para usar",
+        "Alto contenido nutricional",
+        "Perfecto para peces jóvenes y alevines",
+        "Larga duración si se conserva en seco"
+      ]
+    },
+    {
+      "id": 9,
+      "nombre": "Phyllanthus Fluitans",
+      "categoria": "plantas",
+      "descripcion": "Planta flotante ornamental de color verde rojizo, aporta belleza natural y sombra a los acuarios.",
+      "precio": 10,
+      "stock": 20,
+      "nuevo": true,
+      "oferta": false,
+      "rating": 4.7,
+      "reviews": 15,
+      "sku": "PLA-003",
+      "imagenes": [
+        "imagen/phyllanthus.jpg"
+      ],
+      "caracteristicas": [
+        "Flotante decorativa de crecimiento medio",
+        "Aumenta el atractivo visual del acuario",
+        "Ayuda a estabilizar parámetros del agua",
+        "Requiere buena iluminación"
+      ]
+    },
+    {
+      "id": 5,
+      "nombre": "Cambomba",
+      "categoria": "plantas",
+      "descripcion": "Planta oxigenadora clásica ideal para acuarios tropicales. Mejora la calidad del agua y da un toque natural al paisaje acuático.",
+      "precio": 25,
+      "stock": 15,
+      "nuevo": false,
+      "oferta": true,
+      "rating": 4.5,
+      "reviews": 12,
+      "sku": "PLA-001A",
+      "imagenes": [
+        "imagen/cabomba.jpg"
+      ],
+      "caracteristicas": [
+        "Planta 100% natural",
+        "Aumenta el oxígeno disuelto",
+        "Ideal para acuarios tropicales",
+        "Fácil de mantener y de crecimiento rápido"
+      ]
+    },
+    {
+      "id": 6,
+      "nombre": "Bacopa",
+      "categoria": "plantas",
+      "descripcion": "Planta de tallo resistente y hojas brillantes, perfecta para el fondo del acuario. Aporta un verde intenso y gran capacidad oxigenadora.",
+      "precio": 25,
+      "stock": 15,
+      "nuevo": false,
+      "oferta": true,
+      "rating": 4.6,
+      "reviews": 14,
+      "sku": "PLA-001B",
+      "imagenes": [
+        "imagen/bacopa.jpg"
+      ],
+      "caracteristicas": [
+        "Planta de fondo resistente",
+        "Controla el crecimiento de algas",
+        "Crecimiento medio a rápido",
+        "Ideal para principiantes"
+      ]
+    },
+    {
+      "id": 7,
+      "nombre": "Vallisneria",
+      "categoria": "plantas",
+      "descripcion": "Planta de hojas largas y delgadas, excelente para la parte trasera del acuario. Muy resistente y adaptable a distintas condiciones.",
+      "precio": 25,
+      "stock": 15,
+      "nuevo": false,
+      "oferta": true,
+      "rating": 4.7,
+      "reviews": 10,
+      "sku": "PLA-001C",
+      "imagenes": [
+        "imagen/vallisneria1.jpg",
+        "imagen/vallisneria2.jpg",
+        "imagen/vallisneria3.jpg"
+      ],
+      "caracteristicas": [
+        "Ideal para zonas traseras del acuario",
+        "Altamente resistente",
+        "Oxigena y mejora la calidad del agua",
+        "Crece rápidamente"
+      ]
+    },
+    {
+      "id": 8,
+      "nombre": "Sagitaria",
+      "categoria": "plantas",
+      "descripcion": "Variedad compacta de Vallisneria, perfecta para el primer plano o zonas medias del acuario. Muy resistente y fácil de cuidar.",
+      "precio": 25,
+      "stock": 15,
+      "nuevo": false,
+      "oferta": true,
+      "rating": 4.8,
+      "reviews": 8,
+      "sku": "PLA-001D",
+      "imagenes": [
+        "imagen/sagitaria.jpg"
+      ],
+      "caracteristicas": [
+        "Crecimiento compacto",
+        "Excelente para acuarios pequeños",
+        "Ayuda a controlar las algas",
+        "De bajo mantenimiento"
+      ]
+    }
+  ]
+}

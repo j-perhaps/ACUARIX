@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catálogo de productos para acuarios - AQUARIX">
+    <title>AQUARIX | Catálogo de Productos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/catalogo.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="main-header">
+            <div class="container">
+                <div class="logo-container">
+                    <a href="index.html" class="logo">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='dropGrad' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2357C5D0;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%233A9FB0;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M100 30 Q70 60 70 90 Q70 130 100 160 Q130 130 130 90 Q130 60 100 30 Z' fill='url(%23dropGrad)' stroke='%2357C5D0' stroke-width='4'/%3E%3Cpath d='M100 85 Q95 85 95 90 L95 100 Q95 105 100 108 L100 125' stroke='%2386D293' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cellipse cx='85' cy='95' rx='8' ry='12' fill='%2386D293'/%3E%3Cellipse cx='105' cy='100' rx='9' ry='13' fill='%2386D293'/%3E%3Cellipse cx='95' cy='108' rx='7' ry='10' fill='%2386D293'/%3E%3C/svg%3E" alt="AQUARIX Logo" class="logo-img">
+                        <span class="brand">AQUA<span class="accent">RIX</span></span>
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <form id="search-form" class="search-form">
+                        <div class="search-input-wrapper">
+                            <input type="text" id="search-input" class="search-input" placeholder="Buscar acuarios, filtros, decoración...">
+                            <button type="submit" class="search-button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="header-actions">
+                    <div class="contact-info">
+                        <a href="https://wa.me/59173211815" class="action-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+                    
+                    <a href="carrito.html" class="action-button cart-toggle">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="category-nav">
+            <div class="container">
+               
+                
+                <ul class="nav-categories" id="nav-categories">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="catalogo.html" class="nav-link active">Catálogo</a></li>
+                    <li><a href="ofertas.html" class="nav-link">Ofertas</a></li>
+                    <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                </ul>
+                
+                <button class="mobile-menu-close" id="mobile-menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+                
+               
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="catalog-main">
+        <div class="container">
+            <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><span>Catálogo</span></li>
+                </ul>
+            </div>
+            
+            <div class="catalog-wrapper">
+                <!-- SIDEBAR -->
+                <aside class="catalog-sidebar">
+                    <div class="sidebar-header">
+                        <h2>Categorías</h2>
+                        <button class="sidebar-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <ul class="category-list">
+                            <li class="category-item active">
+                                <a href="#todos" data-category="todos">
+                                    <i class="fas fa-fish"></i>
+                                    <span>Todos los productos</span>
+                                    <span class="category-count" id="count-todos">0</span>
+                                </a>
+                            </li>
+                            <li class="category-item">
+                                <a href="#acuarios" data-category="acuarios">
+                                    <i class="fas fa-box"></i>
+                                    <span>Acuarios</span>
+                                    <span class="category-count" id="count-acuarios">0</span>
+                                </a>
+                            </li>
+                            <li class="category-item">
+                                <a href="#filtros" data-category="filtros">
+                                    <i class="fas fa-filter"></i>
+                                    <span>Filtros y Bombas</span>
+                                    <span class="category-count" id="count-filtros">0</span>
+                                </a>
+                            </li>
+                            <li class="category-item">
+                                <a href="#iluminacion" data-category="iluminacion">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Iluminación</span>
+                                    <span class="category-count" id="count-iluminacion">0</span>
+                                </a>
+                            </li>
+                            <li class="category-item">
+                                <a href="#decoracion" data-category="decoracion">
+                                    <i class="fas fa-mountain"></i>
+                                    <span>Decoración</span>
+                                    <span class="category-count" id="count-decoracion">0</span>
+                                </a>
+                            </li>
+                            <li class="category-item">
+                                <a href="#plantas" data-category="plantas">
+                                    <i class="fas fa-leaf"></i>
+                                    <span>Plantas Acuáticas</span>
+                                    <span class="category-count" id="count-plantas">0</span>
+                                </a>
+                            </li>
+                            <li class="category-item">
+                                <a href="#alimento" data-category="alimento">
+                                    <i class="fas fa-cookie-bite"></i>
+                                    <span>Alimento</span>
+                                    <span class="category-count" id="count-alimento">0</span>
+                                </a>
+                            </li>
+                            <li class="category-item">
+                                <a href="#accesorios" data-category="accesorios">
+                                    <i class="fas fa-tools"></i>
+                                    <span>Accesorios</span>
+                                    <span class="category-count" id="count-accesorios">0</span>
+                                </a>
+                            </li>
+                            <li class="category-item">
+                                <a href="#mantenimiento" data-category="mantenimiento">
+                                    <i class="fas fa-spray-can"></i>
+                                    <span>Mantenimiento</span>
+                                    <span class="category-count" id="count-mantenimiento">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3 class="section-title">Filtrar por precio</h3>
+                        <div class="price-slider">
+                            <div class="price-range">
+                                <div class="range-track"></div>
+                                <input type="range" min="0" max="2000" value="0" class="range-min" id="price-min-slider">
+                                <input type="range" min="0" max="2000" value="2000" class="range-max" id="price-max-slider">
+                            </div>
+                            <div class="price-inputs">
+                                <div class="price-field">
+                                    <span>Bs.</span>
+                                    <input type="number" id="min-price" value="0" min="0">
+                                </div>
+                                <span class="price-separator">-</span>
+                                <div class="price-field">
+                                    <span>Bs.</span>
+                                    <input type="number" id="max-price" value="2000" min="0">
+                                </div>
+                            </div>
+                            <button id="apply-filter" class="btn-apply-filter">Aplicar Filtro</button>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3 class="section-title">Disponibilidad</h3>
+                        <div class="filter-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="filter-stock" checked>
+                                <span>Solo en stock</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="filter-offer">
+                                <span>Solo ofertas</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-section cta-section">
+                        <h3>¿Necesitas asesoría?</h3>
+                        <p>Te ayudamos a elegir el mejor acuario para ti</p>
+                        <a href="https://wa.me/59173211815" class="cta-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Contactar ahora</span>
+                        </a>
+                    </div>
+                </aside>
+                
+                <!-- PRODUCTS AREA -->
+                <div class="catalog-content">
+                    <div class="catalog-header">
+                        <div class="title-section">
+                            <h1>Catálogo de Productos</h1>
+                            <p class="products-count">Mostrando <span id="showing-count">0</span> de <span id="total-count">0</span> productos</p>
+                        </div>
+                        
+                        <div class="catalog-controls">
+                            <button class="filter-toggle">
+                                <i class="fas fa-sliders-h"></i>
+                                <span>Filtros</span>
+                            </button>
+                            
+                            <div class="view-options">
+                                <button class="view-btn active" data-view="grid">
+                                    <i class="fas fa-th-large"></i>
+                                </button>
+                                <button class="view-btn" data-view="list">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="sort-options">
+                                <select id="sort-products">
+                                    <option value="popular">Más Populares</option>
+                                    <option value="newest">Más Recientes</option>
+                                    <option value="price-low">Precio: Menor a Mayor</option>
+                                    <option value="price-high">Precio: Mayor a Menor</option>
+                                    <option value="name-asc">Nombre: A-Z</option>
+                                    <option value="name-desc">Nombre: Z-A</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FEATURED BANNER -->
+                    <div class="featured-section">
+                        <div class="featured-banner">
+                            <div class="banner-content">
+                                <span class="banner-tag">🔥 NUEVO</span>
+                                <h2>¡Descubre nuestros acuarios premium!</h2>
+                                <p>Diseños modernos con todo lo necesario para tus peces</p>
+                                <button class="banner-btn" onclick="document.getElementById('acuarios').scrollIntoView({behavior: 'smooth'})">
+                                    Ver acuarios
+                                </button>
+                            </div>
+                            <div class="banner-image">
+                                <i class="fas fa-fish banner-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PRODUCT GRID -->
+                    <div class="product-grid" id="products-container">
+                        <!-- Los productos se cargarán dinámicamente desde JavaScript -->
+                    </div>
+                    
+                    <!-- EMPTY STATE -->
+                    <div class="empty-state" id="empty-state" style="display: none;">
+                        <div class="empty-icon">
+                            <i class="fas fa-fish"></i>
+                        </div>
+                        <h2>No se encontraron productos</h2>
+                        <p>Intenta con otros filtros o busca en otras categorías</p>
+                        <button class="btn-reset" id="reset-filters">Resetear filtros</button>
+                    </div>
+                    
+                    <!-- PAGINATION -->
+                    <div class="pagination-wrapper" id="pagination-wrapper">
+                        <div class="pagination">
+                            <button class="page-btn prev-page" id="prev-page" disabled>
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div class="page-numbers" id="page-numbers">
+                                <!-- Se genera dinámicamente -->
+                            </div>
+                            <button class="page-btn next-page" id="next-page">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="items-per-page">
+                            <span>Mostrar:</span>
+                            <select id="items-per-page">
+                                <option value="12">12</option>
+                                <option value="24">24</option>
+                                <option value="36">36</option>
+                                <option value="48">48</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRODUCT CARD TEMPLATE -->
+    <template id="product-template">
+        <div class="product-card">
+            <div class="product-badges">
+                <!-- Badges dinámicas: nuevo, oferta, etc. -->
+            </div>
+            <div class="product-image">
+                <a href="#" class="product-link">
+                    <!-- GALERÍA DE IMÁGENES MÚLTIPLES -->
+                    <div class="image-gallery">
+                        <img src="" alt="" class="product-img main-image">
+                        <!-- Miniaturas para navegar entre imágenes -->
+                        <div class="image-thumbnails">
+                            <!-- Se llenarán dinámicamente -->
+                        </div>
+                    </div>
+                </a>
+                <div class="product-overlay">
+                    <button class="quick-view-btn" title="Vista rápida">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <span class="product-category"></span>
+                <h3 class="product-title">
+                    <a href="#"></a>
+                </h3>
+                <div class="product-rating">
+                    <div class="stars"></div>
+                    <span class="rating-count"></span>
+                </div>
+                <p class="product-description"></p>
+                
+                <!-- SELECTOR DE PRESENTACIONES -->
+                <div class="product-variants" style="display: none;">
+                    <label class="variant-label">
+                        <i class="fas fa-boxes"></i>
+                        <span>Presentación:</span>
+                    </label>
+                    <div class="variant-options">
+                        <!-- Se llenarán dinámicamente con las diferentes presentaciones -->
+                    </div>
+                </div>
+                
+                <div class="product-meta">
+                    <span class="product-stock"></span>
+                </div>
+                <div class="product-price">
+                    <span class="current-price"></span>
+                    <span class="original-price"></span>
+                    <span class="price-per-unit"></span>
+                </div>
+                <div class="product-actions">
+                    <button class="add-to-cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Añadir al carrito</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- QUICK VIEW MODAL -->
+    <div class="modal" id="quick-view-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-content">
+                <div class="product-quick-view">
+                    <!-- GALERÍA AMPLIADA CON MÚLTIPLES IMÁGENES -->
+                    <div class="product-gallery">
+                        <div class="gallery-main">
+                            <img src="" id="modal-image" alt="">
+                            <div class="product-badges" id="modal-badges">
+                                <!-- Badges -->
+                            </div>
+                            <!-- Navegación de imágenes -->
+                            <button class="gallery-nav prev-image" title="Imagen anterior">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="gallery-nav next-image" title="Imagen siguiente">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <!-- Miniaturas debajo de la imagen principal -->
+                        <div class="gallery-thumbnails" id="modal-thumbnails">
+                            <!-- Se llenarán dinámicamente -->
+                        </div>
+                    </div>
+                    
+                    <div class="product-details">
+                        <span class="product-category" id="modal-category"></span>
+                        <h2 class="product-title" id="modal-title"></h2>
+                        <div class="product-rating">
+                            <div class="stars" id="modal-stars"></div>
+                            <span class="rating-count" id="modal-rating"></span>
+                        </div>
+                        
+                        <!-- SELECTOR DE PRESENTACIONES EN MODAL -->
+                        <div class="product-presentation-selector" id="modal-presentations">
+                            <h4>
+                                <i class="fas fa-boxes"></i>
+                                Elige tu presentación:
+                            </h4>
+                            <div class="presentation-options">
+                                <!-- Se llenarán dinámicamente con botones tipo radio -->
+                            </div>
+                        </div>
+                        
+                        <div class="product-price">
+                            <span class="current-price" id="modal-price"></span>
+                            <span class="original-price" id="modal-original"></span>
+                            <span class="price-saving" id="modal-saving"></span>
+                            <span class="price-per-unit" id="modal-price-unit"></span>
+                        </div>
+                        
+                        <div class="product-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Disponibilidad:</span>
+                                <span class="stock-status" id="modal-stock"></span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">SKU:</span>
+                                <span id="modal-sku"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-description" id="modal-description"></div>
+                        
+                        <div class="product-actions">
+                            <div class="quantity">
+                                <button class="quantity-btn minus">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="number" value="1" min="1" id="modal-quantity">
+                                <button class="quantity-btn plus">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <button class="add-to-cart-btn" id="modal-add-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Añadir al carrito</span>
+                            </button>
+                        </div>
+                        
+                        <div class="product-features" id="modal-features">
+                            <h4>Características:</h4>
+                            <ul></ul>
+                        </div>
+                        
+                        <div class="product-benefits">
+                            <div class="benefit-item">
+                                <i class="fas fa-truck"></i>
+                                <span>Envío a domicilio</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Garantía de calidad</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-headset"></i>
+                                <span>Soporte técnico</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE NAVBAR -->
+    <nav class="mobile-navbar">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Inicio</span>
+        </a>
+        <a href="catalogo.html" class="nav-item active">
+            <i class="fas fa-th-large"></i>
+            <span>Catálogo</span>
+        </a>
+        <a href="ofertas.html" class="nav-item">
+            <i class="fas fa-tag"></i>
+            <span>Ofertas</span>
+        </a>
+        <a href="carrito.html" class="nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Carrito</span>
+            <span class="mobile-cart-count">0</span>
+        </a>
+    </nav>
+
+    <!-- OVERLAY MÓVIL -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
+    <!-- NOTIFICATION -->
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="notification-message"></span>
+        </div>
+        <button class="notification-close" id="notification-close">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='dropGrad' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2357C5D0;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%233A9FB0;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M100 30 Q70 60 70 90 Q70 130 100 160 Q130 130 130 90 Q130 60 100 30 Z' fill='url(%23dropGrad)' stroke='%2357C5D0' stroke-width='4'/%3E%3Cpath d='M100 85 Q95 85 95 90 L95 100 Q95 105 100 108 L100 125' stroke='%2386D293' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cellipse cx='85' cy='95' rx='8' ry='12' fill='%2386D293'/%3E%3Cellipse cx='105' cy='100' rx='9' ry='13' fill='%2386D293'/%3E%3Cellipse cx='95' cy='108' rx='7' ry='10' fill='%2386D293'/%3E%3C/svg%3E" alt="AQUARIX Logo">
+                        <span class="brand">AQUA<span class="accent">RIX</span></span>
+                    </div>
+                    <p class="footer-tagline">Todo para tu acuario en un solo lugar</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>La Paz, Bolivia</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+591 73211815</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Lun - Sáb: 9:00 - 19:00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Enlaces rápidos</h4>
+                        <ul>
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="catalogo.html">Catálogo</a></li>
+                            <li><a href="ofertas.html">Ofertas</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Categorías</h4>
+                        <ul>
+                            <li><a href="#acuarios">Acuarios</a></li>
+                            <li><a href="#filtros">Filtros</a></li>
+                            <li><a href="#decoracion">Decoración</a></li>
+                            <li><a href="#plantas">Plantas</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Información</h4>
+                        <ul>
+                            <li><a href="#">Sobre nosotros</a></li>
+                            <li><a href="#">Guías de cuidado</a></li>
+                            <li><a href="#">Términos y condiciones</a></li>
+                            <li><a href="#">Preguntas frecuentes</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1FehgyWTon/" class="social-link" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@acuarix_?_t=ZM-90ut0K3cHf6&_r=1" class="social-link" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://wa.me/59173211815" class="social-link" title="WhatsApp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 AQUARIX. Todos los derechos reservados.</p>
+                <button class="back-to-top" id="back-to-top">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/productos.js"></script>
+    <script src="js/catalogo.js"></script>
+</body>
+</html>
